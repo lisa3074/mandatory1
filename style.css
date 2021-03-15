@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+}
+
+section,
+nav {
+  padding: 1rem;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(174, 170, 182);
+}
+
+footer p {
+  padding: 1rem;
+}
+
+.error {
+  color: red;
+  height: 25px;
+}
+li {
+  list-style: none;
+  padding-bottom: 0.5rem;
+  display: inline;
+  padding-right: 1rem;
+}
+a {
+  text-decoration: none;
+
+  color: black;
+}
+
+.signup,
+.login {
+  display: grid;
+  width: 300px;
+  margin: 0 auto;
+}
+.signup input,
+.signup > label {
+  width: 300px;
+}
+
+.signup input,
+.login input {
+  padding: 0.2rem;
+}
+.signup p,
+.login label {
+  font-size: 0.8rem;
+}
+.signup > label {
+  margin-bottom: 1rem;
+}
+
+.login > label {
+  margin-top: 1rem;
+}
+.login > label:nth-child(2) {
+  margin-top: 0;
+}
+.signup span {
+  width: 6rem;
+}
+
+.signup button,
+.login button {
+  width: 100px;
+  justify-self: flex-end;
+  padding: 0.3rem 1.5rem;
+}
+.login button {
+  margin-top: 1rem;
+}
