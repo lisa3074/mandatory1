@@ -67,7 +67,7 @@ function serve_profile($id){
     session_start();
     
     if(! isset($_SESSION['email'])){
-        header('Location: /5_semester_webdev/mandatory1/login');
+        header('Location: /5_semester_webdev/mandatory1/');
         exit();
     }
        require_once(__DIR__. '/views/view_top.php');
@@ -106,7 +106,7 @@ function serve_users($id){
     $order = 'asc';
     session_start();
      if(! isset($_SESSION['email'])){
-        header('Location: /5_semester_webdev/mandatory1/login');
+        header('Location: /5_semester_webdev/mandatory1/');
         exit();
     }
     require_once(__DIR__. '/views/view_top.php');
@@ -118,7 +118,7 @@ get('/users/:id/:sort/:order', 'serve_sort_users');
 function serve_sort_users($id, $sort, $order){
    session_start();
      if(! isset($_SESSION['email'])){
-        header('Location: /5_semester_webdev/mandatory1/login');
+        header('Location: /5_semester_webdev/mandatory1/');
         exit();
     }
       $page_title ='USERS';

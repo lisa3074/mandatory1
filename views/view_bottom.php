@@ -1,5 +1,5 @@
 <footer>
-    <p>Web development KEA - 1st mandatory assignment</p>
+    <p>Web dev KEA - 1st mandatory // Lisa Søndergaard</p>
 </footer>
 
 </body>
