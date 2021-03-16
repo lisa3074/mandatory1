@@ -12,23 +12,42 @@ nav {
 }
 footer {
   width: 100%;
-  background-color: rgb(174, 170, 182);
+  background-color: #a9b6cc;
+  z-index: 10;
+  position: relative;
 }
 
 footer p {
+  color: rgb(77, 77, 77);
   padding: 1rem;
 }
 
 section {
   min-height: calc(100vh - 92px);
 }
+body {
+  position: relative;
+}
+.background {
+  min-height: calc(100vh - 90px);
+}
 
-h1 {
+.background div span {
+  /* background-color: #ffec67; */
+  z-index: 10;
+  position: relative;
+  display: inline;
+}
+
+h1,
+.h1 {
   font-size: 1.6rem;
   padding-bottom: 1rem;
+  color: #95998a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .error {
-  color: red;
+  color: rgb(228, 94, 94);
   min-height: 25px;
   padding-top: 1rem;
   font-size: 0.8rem;
@@ -60,16 +79,15 @@ a {
   margin: 0 auto;
 }
 
-.signup input,
-.login input {
-  padding: 0.2rem;
-}
 .signup p,
 .login label {
   font-size: 0.8rem;
 }
 .signup > label {
   margin-bottom: 1rem;
+}
+.signup label:nth-child(7) {
+  margin-bottom: 0;
 }
 
 .login > label:nth-child(2) {
@@ -98,6 +116,7 @@ a {
 }
 .user p {
   font-size: 0.8rem;
+  line-height: 1rem;
 }
 .sort {
   padding: 1rem 1rem 1rem 0;
@@ -106,13 +125,26 @@ a {
   padding-right: 1rem;
   font-weight: 600;
 }
-
+h2,
+.h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
 h3 {
   font-weight: 400;
   font-style: italic;
   font-size: 0.9rem;
 }
-
+.p {
+  font-size: 1.5rem;
+}
+.h2 {
+  font-size: 2rem;
+}
+.h1 {
+  font-size: 3rem;
+}
 .signup label,
 .login label {
   display: flex;
@@ -121,9 +153,9 @@ h3 {
 /* default */
 .signup label > input[placeholder=" "]:not(:focus):placeholder-shown + span,
 .login label > input[placeholder=" "]:not(:focus):placeholder-shown + span {
-  transform: translate(5px, 1.25rem);
+  transform: translate(7px, 1.25rem);
   pointer-events: none;
-  color: gray;
+  color: #95998a;
   font-size: 0.8rem;
 }
 /* lift */
@@ -131,11 +163,57 @@ h3 {
 .login label > span {
   transition: all 0.2s;
   transform-origin: top left;
-  color: rgb(60, 74, 114);
+  color: rgb(110, 121, 153);
   font-size: 0.85rem;
 }
 
-.login input,
-.signup input {
+.main_nav {
+  background-color: #ffec67;
+  z-index: 10;
+  position: relative;
+}
+nav a {
+  color: #7f8375;
+}
+
+button {
+  background-color: #95998a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid gray;
+  color: #5b5e54;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.8rem;
   outline-color: rgba(115, 130, 168, 0.61);
+}
+
+.profile_welcome {
+  max-width: 65ch;
+}
+
+.background .modal {
+  max-width: 700px;
+  background-color: #a9b6cc5e;
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  margin-bottom: 25%;
+}
+
+.background .p {
+  padding: 0.1rem;
+}
+
+@media (min-width: 900px) {
+  .background .modal {
+    margin-left: 7%;
+    margin-bottom: 15%;
+    padding: 3rem;
+  }
 }

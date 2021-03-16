@@ -9,8 +9,9 @@ $qi->execute();
 $inactive_users = $qi->fetchAll(); 
 
 ?>
-<h1>ACTIVE USERS</h1>
-<h3>Chosen filter:<?php
+<section>
+    <h1>ACTIVE USERS</h1>
+    <h3>Chosen filter:<?php
 if($sort == 'firstname'){
     echo ' Name';
     if($order == 'asc'){
@@ -28,21 +29,21 @@ if($sort == 'firstname'){
 }
 ;
 ?></h3>
-<nav class="sort">
-    <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/firstname/asc">
-        Name ↑
-    </a>
-    <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/firstname/desc">
-        Name ↓
-    </a>
-    <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/age/asc">
-        Age ↑
-    </a>
-    <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/age/desc">
-        Age ↓ </a>
-</nav>
-<div class='user_list'>
-    <?php
+    <nav class="sort">
+        <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/firstname/asc">
+            Name ↑
+        </a>
+        <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/firstname/desc">
+            Name ↓
+        </a>
+        <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/age/asc">
+            Age ↑
+        </a>
+        <a href="/5_semester_webdev/mandatory1/users/<?=$id?>/age/desc">
+            Age ↓ </a>
+    </nav>
+    <div class='user_list'>
+        <?php
 
 
 foreach($users as $user){
@@ -63,9 +64,9 @@ foreach($users as $user){
 }
 echo "</div>";
 ?>
-    <h1>INACTIVE USERS</h1>
-    <div class='user_list'>
-        <?php
+        <h1>INACTIVE USERS</h1>
+        <div class='user_list'>
+            <?php
 
 foreach($inactive_users as $i_user){
     echo "<div class='user'>
@@ -83,4 +84,4 @@ foreach($inactive_users as $i_user){
          </div>";
     };
 }
-echo "</div>";
+echo "</div></section>";

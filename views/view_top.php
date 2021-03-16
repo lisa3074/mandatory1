@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav>
+    <nav class="main_nav">
         <ul>
             <li>
                 <a href="/5_semester_webdev/mandatory1/profile/<?=$id?? 'some'?>">
@@ -26,11 +26,9 @@
                 </a>
             </li>
             <li>
-                <a href="/5_semester_webdev/mandatory1/logout">
+                <a href="/5_semester_webdev/mandatory1/logout/">
                     LOGOUT
                 </a>
             </li>
         </ul>
     </nav>
-
-    <section>

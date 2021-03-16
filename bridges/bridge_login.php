@@ -47,6 +47,7 @@ else{
     //if all is good
     session_start();
     $_SESSION['email'] = $_POST['user_email'];
+    $_SESSION['firstname'] = $user[0]->firstname;
     header("Location: /5_semester_webdev/mandatory1/profile/{$user[0]->id}");
     exit();
 }

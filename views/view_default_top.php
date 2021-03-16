@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav>
+    <nav class="main_nav">
         <ul>
             <li>
                 <a href="/5_semester_webdev/mandatory1/index">
@@ -32,5 +32,3 @@
             </li>
         </ul>
     </nav>
-
-    <section>

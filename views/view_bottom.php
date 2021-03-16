@@ -1,8 +1,7 @@
-</section>
 <footer>
-    <p>Web development</p>
+    <p>Web development KEA - 1st mandatory assignment</p>
 </footer>
-<script src="interaction.js"></script>
+
 </body>
 
 </html>
