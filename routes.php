@@ -11,7 +11,7 @@ require_once(__DIR__.'/router.php');
 get('/index', 'serve_index');
 function serve_index(){
     $page_title ='COMPANY';
-    require_once(__DIR__. '/views/view_top.php');
+  require_once(__DIR__. '/views/view_default_top.php');
     require_once(__DIR__. '/views/view_index.php');
     require_once(__DIR__. '/views/view_bottom.php');
     exit();
@@ -23,7 +23,7 @@ get('/login/error/:message', 'serve_error_login');
 function serve_error_login($message){
     $display_error = $message;
     $page_title ='LOGIN';
-    require_once(__DIR__. '/views/view_top.php');
+    require_once(__DIR__. '/views/view_default_top.php');
     require_once(__DIR__. '/views/view_login.php');
     require_once(__DIR__. '/views/view_bottom.php');
     exit();
@@ -31,7 +31,7 @@ function serve_error_login($message){
 get('/login', 'serve_login');
 function serve_login(){
     $page_title ='LOGIN';
-    require_once(__DIR__. '/views/view_top.php');
+     require_once(__DIR__. '/views/view_default_top.php');
     require_once(__DIR__. '/views/view_login.php');
     require_once(__DIR__. '/views/view_bottom.php');
     exit();
@@ -41,33 +41,37 @@ function serve_login(){
 
 get('/logout', 'logout');
 function logout(){
-    require_once(__DIR__. '/bridges/bridge_logout.php');
-    require_once(__DIR__. '/views/view_bottom.php');
-    exit();
+  require_once(__DIR__. '/views/view_default_top.php');
+  require_once(__DIR__. '/bridges/bridge_logout.php');
+  require_once(__DIR__. '/views/view_bottom.php');
+  exit();
 }
 
-//############# USERS #################
+//############# DEACTIVATE #################
 
-get('/users', 'serve_users');
-function serve_users(){
-    $page_title ='USERS';
-    require_once(__DIR__. '/views/view_top.php');
-    require_once(__DIR__. '/views/view_users.php');
+ get('/deactivate/:id', 'serve_deactivate');
+function serve_deactivate(){
+    require_once(__DIR__. '/views/view_default_top.php');
+    require_once(__DIR__. '/views/view_login.php');
     require_once(__DIR__. '/views/view_bottom.php');
     exit();
-}
+} 
 
-//############# ADMIN #################
 
-get('/admin', 'serve_admin');
-function serve_admin(){
+//############# PROFILE #################
+
+get('/profile/:id', 'serve_profile');
+function serve_profile($id){
+      $page_title ='PROFILE';
+      $user_id = $id;
     session_start();
     
     if(! isset($_SESSION['email'])){
         header('Location: /5_semester_webdev/mandatory1/login');
         exit();
     }
-    require_once(__DIR__. '/views/view_admin.php');
+       require_once(__DIR__. '/views/view_top.php');
+    require_once(__DIR__. '/views/view_profile.php');
     require_once(__DIR__. '/views/view_bottom.php');
     exit();
 }
@@ -76,7 +80,8 @@ function serve_admin(){
 
 get('/signup', 'serve_signup');
 function serve_signup(){
-     require_once(__DIR__. '/views/view_top.php');
+      $page_title ='SIGN UP';
+    require_once(__DIR__. '/views/view_default_top.php');
      require_once(__DIR__ . '/views/view_signup.php');
      require_once(__DIR__. '/views/view_bottom.php');
 exit();
@@ -85,8 +90,40 @@ exit();
 get('/signup/error/:message', 'serve_signup_error');
 function serve_signup_error($message){
   $display_error_signup = $message;
-    require_once(__DIR__. '/views/view_top.php');
+      $page_title ='SIGN UP';
+     require_once(__DIR__. '/views/view_default_top.php');
     require_once(__DIR__ . '/views/view_signup.php');
+    require_once(__DIR__. '/views/view_bottom.php');
+  exit();
+}
+
+//############# USERS #################
+
+get('/users/:id', 'serve_users');
+function serve_users($id){
+    $page_title ='USERS';
+    $sort = 'age';
+    $order = 'asc';
+    session_start();
+     if(! isset($_SESSION['email'])){
+        header('Location: /5_semester_webdev/mandatory1/login');
+        exit();
+    }
+    require_once(__DIR__. '/views/view_top.php');
+    require_once(__DIR__. '/views/view_users.php');
+    require_once(__DIR__. '/views/view_bottom.php');
+    exit();
+}
+get('/users/:id/:sort/:order', 'serve_sort_users');
+function serve_sort_users($id, $sort, $order){
+   session_start();
+     if(! isset($_SESSION['email'])){
+        header('Location: /5_semester_webdev/mandatory1/login');
+        exit();
+    }
+      $page_title ='USERS';
+    require_once(__DIR__. '/views/view_top.php');
+    require_once(__DIR__ . '/views/view_users.php');
     require_once(__DIR__. '/views/view_bottom.php');
   exit();
 }
@@ -112,6 +149,14 @@ function signup(){
       require_once(__DIR__ . '/bridges/bridge_signup.php');
     exit();
 }
+
+//############# DEACTIVATE #################
+post('/deactivate/:id', 'deactivate');
+function deactivate($id){
+      require_once(__DIR__ . '/bridges/bridge_deactivate.php');
+}
+
+
 
 //############# 404 #################
 

@@ -9,6 +9,7 @@ $fname_length = strlen($_POST['user_firstname']);
 $lname_length = strlen($_POST['user_lastname']);
 $age_length = strlen($_POST['age']);
 $password_length = strlen($_POST['user_password']);
+$signed_up_user = [];
 
 //Does the email already exist? (backend)
   if(!count($user) == 0){
@@ -60,6 +61,33 @@ $password_length = strlen($_POST['user_password']);
             header('Location: /5_semester_webdev/mandatory1/signup/error/The two passwords does not match');
             exit();
         } 
+
+        //POST all values
+        $ran_id = rand(10,100000000);
+   
+          if( isset($_POST['user_firstname'], $_POST['user_lastname'], $_POST['age'], $_POST['user_email'], $_POST['user_phone'], $_POST['user_password']) ) {
+          $q = $db ->prepare("INSERT INTO users (id, firstname, lastname, age, email, phone, password, active) 
+            VALUES (
+                :id, 
+                :firstname, 
+                :lastname, 
+                :age, 
+                :email,
+                :phone, 
+                :password, 
+                1
+                )"
+            );
+            $q->bindValue(':id', $ran_id);
+            $q->bindValue(':firstname', $_POST['user_firstname']);
+            $q->bindValue(':lastname', $_POST['user_lastname']);
+            $q->bindValue(':age', $_POST['age']);
+            $q->bindValue(':email', $_POST['user_email']);
+            $q->bindValue(':phone', $_POST['user_phone']);
+            $q->bindValue(':password', $_POST['user_password']);
+            $q->execute();
+          }
+
         
         //Go to profile (successful sign up)
         header('Location: /5_semester_webdev/mandatory1/login');

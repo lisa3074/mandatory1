@@ -1,56 +1,68 @@
-<form action="/5_semester_webdev/mandatory1/signup"
-    method="POST"
-    class="signup">
-    <div class="error">
-        <?php
+<article class="flex">
+    <form action="/5_semester_webdev/mandatory1/signup"
+        method="POST"
+        class="signup">
+
+        <label for="firstname">
+            <input type="text"
+                id="firstname"
+                name="user_firstname"
+                placeholder=" ">
+            <span>First name</span>
+        </label>
+        <label for="lastname">
+            <input type="text"
+                id="lastname"
+                name="user_lastname"
+                placeholder=" ">
+            <span>Last name</span>
+        </label>
+        <label for="age">
+            <input type="number"
+                id="age"
+                name="age"
+                placeholder=" ">
+            <span>Age</span>
+        </label>
+        <label for="email">
+            <input type="text"
+                id="email"
+                name="user_email"
+                placeholder=" " />
+            <span>Email</span>
+        </label>
+        <label for="phone">
+            <input type="number"
+                id="phone"
+                name="user_phone"
+                placeholder=" ">
+            <span>Phone</span>
+        </label>
+        <label for="password">
+            <input type="password"
+                id="password"
+                name="user_password"
+                placeholder=" " />
+            <span>Password</span>
+        </label>
+        <label for="confirm">
+            <input type="password"
+                id="confirm"
+                name="confirm_user_password"
+                placeholder=" ">
+            <span>Confirm password</span>
+        </label>
+        <button>Sign up</button>
+        <div class="error">
+            <?php
+     
   if( isset($display_error_signup) ){
   ?>
-        <?= urldecode($display_error_signup) ?>
-        <?php
+            <?= urldecode($display_error_signup) ?>
+            <?php
   }
   ?>
-    </div>
-    <label for="firstname">
-        <p>First name</p>
-        <input type="text"
-            id="firstname"
-            name="user_firstname">
-    </label>
-    <label for="lastname">
-        <p>Last name</p>
-        <input type="text"
-            id="lastname"
-            name="user_lastname">
-    </label>
-    <label for="age">
-        <p>Age</p>
-        <input type="text"
-            id="age"
-            name="age">
-    </label>
-    <label for="email">
-        <p>Email</p>
-        <input type="text"
-            id="email"
-            name="user_email" />
-    </label>
-    <label for="phone">
-        <p>Phone</p>
-        <input type="number"
-            id="phone"
-            name="user_phone">
-    </label>
-    <label for="password">
-        <p>Password</p>
-        <input type="password"
-            id="password"
-            name="user_password" />
-    </label>
-    <label for="confirm">
-        <p>Confirm password</p>
-        <input type="password"
-            id="confirm"
-            name="confirm_user_password">
-    </label>
-    <button>Sign up</button>
-</form>
+        </div>
+
+    </form>
+</article>

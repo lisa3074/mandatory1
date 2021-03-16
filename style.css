@@ -11,8 +11,6 @@ nav {
   padding: 1rem;
 }
 footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: rgb(174, 170, 182);
 }
@@ -21,9 +19,20 @@ footer p {
   padding: 1rem;
 }
 
+section {
+  min-height: calc(100vh - 92px);
+}
+
+h1 {
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+}
 .error {
   color: red;
-  height: 25px;
+  min-height: 25px;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  text-align: right;
 }
 li {
   list-style: none;
@@ -37,15 +46,18 @@ a {
   color: black;
 }
 
+.flex {
+  height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+
 .signup,
 .login {
   display: grid;
   width: 300px;
   margin: 0 auto;
-}
-.signup input,
-.signup > label {
-  width: 300px;
 }
 
 .signup input,
@@ -60,14 +72,8 @@ a {
   margin-bottom: 1rem;
 }
 
-.login > label {
-  margin-top: 1rem;
-}
 .login > label:nth-child(2) {
-  margin-top: 0;
-}
-.signup span {
-  width: 6rem;
+  margin-top: 1rem;
 }
 
 .signup button,
@@ -78,4 +84,58 @@ a {
 }
 .login button {
   margin-top: 1rem;
+}
+
+.user_list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+.user {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+.user p {
+  font-size: 0.8rem;
+}
+.sort {
+  padding: 1rem 1rem 1rem 0;
+}
+.sort a {
+  padding-right: 1rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.signup label,
+.login label {
+  display: flex;
+  flex-direction: column-reverse;
+}
+/* default */
+.signup label > input[placeholder=" "]:not(:focus):placeholder-shown + span,
+.login label > input[placeholder=" "]:not(:focus):placeholder-shown + span {
+  transform: translate(5px, 1.25rem);
+  pointer-events: none;
+  color: gray;
+  font-size: 0.8rem;
+}
+/* lift */
+.signup label > span,
+.login label > span {
+  transition: all 0.2s;
+  transform-origin: top left;
+  color: rgb(60, 74, 114);
+  font-size: 0.85rem;
+}
+
+.login input,
+.signup input {
+  outline-color: rgba(115, 130, 168, 0.61);
 }

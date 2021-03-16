@@ -16,18 +16,18 @@
     <nav>
         <ul>
             <li>
-                <a href="/5_semester_webdev/mandatory1/profile/<?=$id?? 'some'?>">
-                    PROFILE
+                <a href="/5_semester_webdev/mandatory1/index">
+                    HOME
                 </a>
             </li>
             <li>
-                <a href="/5_semester_webdev/mandatory1/users/<?=$id?>">
-                    USERS
+                <a href="/5_semester_webdev/mandatory1/signup">
+                    SIGN UP
                 </a>
             </li>
             <li>
-                <a href="/5_semester_webdev/mandatory1/logout">
-                    LOGOUT
+                <a href="/5_semester_webdev/mandatory1/login">
+                    LOGIN
                 </a>
             </li>
         </ul>

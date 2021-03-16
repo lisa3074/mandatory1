@@ -7,6 +7,12 @@ try{
     $q->execute();
     $user = $q->fetchAll();
 
+    $qi = $db ->prepare('SELECT * FROM users WHERE email = :email AND active != 0');
+    $qi->bindValue(':email', $_POST['user_email']);
+    $qi->execute();
+    $user_inactive = $qi->fetchAll();
+
+
     //email isn't an email (frontend)
     if( ! filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL) ){
         header('Location: /5_semester_webdev/mandatory1/login/error/Invalid Email');
@@ -32,14 +38,18 @@ $password_length = strlen($_POST['user_password']);
 if($_POST['user_password'] != $user[0]->password){
    header('Location: /5_semester_webdev/mandatory1/login/error/Password does not match the user');
 }
+    if(count($user_inactive) == 0){
+        //if email doesn't match user (backend) 
+        header('Location: /5_semester_webdev/mandatory1/login/error/Your account has been deactivated. Create a new login or contact an admin');
+        exit();
+    }
 else{
     //if all is good
     session_start();
     $_SESSION['email'] = $_POST['user_email'];
-    header('Location: /5_semester_webdev/mandatory1/admin');
+    header("Location: /5_semester_webdev/mandatory1/profile/{$user[0]->id}");
     exit();
 }
-    //echo json_encode($user);
 }catch(PDOExeption $ex){
     echo $ex;
 }
